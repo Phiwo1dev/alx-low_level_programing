@@ -1,8 +1,8 @@
-#include "main.h"
 #include <stdio.h>
 
 /**
- * main - Prints a Fizz Buzz program
+ * main - Entry point
+ * Description: Prints a Fizz Buzz program
  * Returns: Always 0 (Succes)
  */
 
