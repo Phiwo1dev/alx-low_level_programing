@@ -7,12 +7,12 @@
 void print_rev(char *s)
 
 {
-	int longi + 0;
-	int o
+	int longi = 0;
+	int o;
 
-		while (*s != '\n')
+		while (*s != '\0')
 		{
-		longi++
+		longi++;
 		s++;
 		}
 	s--;
@@ -22,5 +22,5 @@ void print_rev(char *s)
 	s--;
 	}
 
-	_putchar('\n')
+	_putchar('\n');
 }
