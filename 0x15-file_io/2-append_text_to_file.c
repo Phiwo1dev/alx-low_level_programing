@@ -10,21 +10,24 @@
 int append_text_to_file(const char *filename, char *text_content)
 
 {
-	int a, b, c;
+	int a, b, c = 0;
 
-	a = b = c = 0;
 	if (!filename)
 		return (-1);
-	else if (!text_content || !text_content[0])
-		return (1);
+
+	if (text_content != NULL)
+	{
+		for (c = 0; text_content[c];)
+			c++;
+	}
+
 	a = open(filename, O_WRONLY | O_APPEND);
-	if (a < 0)
-		return (-1);
-	while (text_content[c])
-		c++;
-	b = write(b, text_content, c);
-	if (b < 0)
+	b = write(a, text_content, c);
+
+	if (a == -1 || b == -1)
+
 		return (-1);
 	close(a);
+
 	return (1);
 }
