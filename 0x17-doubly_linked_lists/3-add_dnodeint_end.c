@@ -1,11 +1,12 @@
 #include "lists.h"
 
+
 static dlistint_t *new_node(const int n);
 
 /**
- * add_dnodeint_end - adds a new node at the end of a dlinked list
+ * add_dnodeint_end - adds a new node at the end of a dlistint_t list.
  * @head: pointer to a pointer of a linked list
- * @n: value to give to new node
+ * @n: value to assign to new node
  *
  * Return: a pointer to the newly added node
  */
@@ -36,22 +37,21 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 
 
 /**
- * new_node - creates a new node and asigns it a value
- * @n: value of the new node
+ * new_node - creates a new node and assigns a vaule.
+ * @n: value to assign to new node
  *
- * Return: new node.
+ * Return: a pointer to a new node.
  */
 static dlistint_t *new_node(const int n)
-
 {
-	dlistint_t *new;
+	dlistint_t *node;
 
-	new = malloc(sizeof(dlistint_t));
-	if (!new)
+	node = malloc(sizeof(dlistint_t));
+	if (!node)
 		return (NULL);
-	new->n = n;
-	new->prev = NULL;
-	new->next = NULL;
+	node->n = n;
+	node->prev = NULL;
+	node->next = NULL;
 
-	return (new);
+	return (node);
 }
