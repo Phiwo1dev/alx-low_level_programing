@@ -3,14 +3,15 @@
 static dlistint_t *new_node(int n);
 
 /**
- * insert_dnodeint_at_index - inserts a node at a given index
+ * insert_dnodeint_at_index - inserts a new node at a given index.
  * @h: pointer of a pointer to linked list.
  * @idx: where the new node should be added.
- * @n: value to give to new node.
+ * @n: value to assign to new node.
  *
- * Return: a pointer to the add node else NULL if fail.
+ * Return: address of the new node, or NULL if it failed
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
+
 {
 	dlistint_t *node, *new;
 	size_t i = 0;
@@ -35,34 +36,35 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (NULL);
 	else if (node)
 	{
-		n = new_node(n);
-		if (!n)
+		new = new_node(n);
+		if (!new)
 			return (NULL);
-		if (n->next)
-			node->next->prev = n;
-		n->prev = node;
-		n->next = node->next;
-		node->next = n;
+		if (node->next)
+			node->next->prev = new;
+		new->prev = node;
+		new->next = node->next;
+		node->next = new;
 	}
-	return (n);
+	return (new);
 }
 
 /**
- * new_node - a function that creates a new node
- * @n: value to assign to the new node
+ * new_node - creates a new node
+ * @n: value to assign to new noe
  *
- * Return: new node.
+ * Return: pointer to a new node.
  */
 static dlistint_t *new_node(int n)
 
 {
-	dlistint_t *new;
 
-	new = malloc(sizeof(dlistint_t));
-	if (!new)
+	dlistint_t *node;
+
+	node = malloc(sizeof(dlistint_t));
+	if (!node)
 		return (NULL);
-	new->n = n;
-	new->next = new->prev = NULL;
+	node->n = n;
+	node->next = node->prev = NULL;
 
-	return (new);
+	return (node);
 }
