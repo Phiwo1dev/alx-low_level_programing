@@ -1,9 +1,9 @@
-#include <stdio.h>
+i#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 /**
- * main - A function that generates and prints the password 
+ * main - A function that generates and prints the password
  * for the crackme5 executable file.
  * @argc: argument count for the program
  * @argv: argument values
